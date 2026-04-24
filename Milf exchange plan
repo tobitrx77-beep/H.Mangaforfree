@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Mid Plan - Manhwa Station</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #ff4757; --bg: #0a0a0a; --card: #1a1a1a; --text: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); padding-bottom: 50px; }
+        
+        nav { background: #1a1a1a; padding: 15px 5%; border-bottom: 2px solid var(--primary); }
+        .logo { font-size: 20px; font-weight: 900; color: var(--primary); text-decoration: none; text-transform: uppercase; }
+
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+
+        /* --- Header Section --- */
+        .manhwa-header { display: flex; gap: 30px; flex-wrap: wrap; background: var(--card); padding: 25px; border-radius: 15px; }
+        .manhwa-cover { width: 250px; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .manhwa-info { flex: 1; min-width: 300px; }
+        .manhwa-info h1 { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
+        .tags { margin-bottom: 20px; }
+        .tag { background: #333; padding: 5px 12px; border-radius: 20px; font-size: 12px; margin-right: 5px; }
+        .synopsis { color: #ccc; line-height: 1.6; margin-bottom: 20px; }
+
+        /* --- Chapters List --- */
+        .chapters-section { margin-top: 40px; }
+        .chapters-section h2 { border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
+        .chapter-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .chapter-item { 
+            background: var(--card); padding: 15px 25px; border-radius: 8px; 
+            text-decoration: none; color: white; display: flex; justify-content: space-between;
+            transition: 0.3s; border: 1px solid transparent;
+        }
+        .chapter-item:hover { border-color: var(--primary); background: #222; transform: translateX(5px); }
+        .chapter-item span { color: var(--primary); font-weight: bold; }
+
+        @media (max-width: 600px) {
+            .manhwa-cover { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">MANHWA<span>STATION</span></a>
+</nav>
+
+<div class="container">
+    <div class="manhwa-header">
+        <img src="https://via.placeholder.com/250x350?text=Exchange+Mid+Plan" alt="Cover" class="manhwa-cover">
+        <div class="manhwa-info">
+            <h1>Exchange Mid Plan</h1>
+            <div class="tags">
+                <span class="tag">Drama</span>
+                <span class="tag">Romance</span>
+                <span class="tag">Slice of Life</span>
+            </div>
+            <p class="synopsis">
+                The story of "Exchange Mid Plan" follows a complex web of relationships and unexpected turns. (You can add the full description here later).
+            </p>
+            <div class="status">Status: <span style="color: #2ed573;">Ongoing</span></div>
+        </div>
+    </div>
+
+    <div class="chapters-section">
+        <h2>Chapters List</h2>
+        <div class="chapter-list">
+            <a href="viewer.html" class="chapter-item">
+                Chapter 01 <span>FREE</span>
+            </a>
+            <a href="viewer.html" class="chapter-item">
+                Chapter 02 <span>FREE</span>
+            </a>
+            <a href="viewer.html" class="chapter-item">
+                Chapter 03 <span>FREE</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
