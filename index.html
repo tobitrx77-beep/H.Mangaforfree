@@ -1,274 +1,134 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>محطة المانهوا | عالم المانهوا المترجمة والأخبار</title>
-    <meta name="description" content="أفضل موقع لمتابعة مراجعات وترشيحات المانهوا المترجمة. اكتشف أفضل المانهوات الأكشن، الخيال، والرومانسية في مكان واحد.">
-    <meta name="keywords" content="مانهوا, مانهوا مترجمة, سولو ليفلينج, مانهوا اكشن, مانهوا كورية, manhwa arabic">
-    <meta name="author" content="Manhwa Station">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Manhwa Station | Content Viewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
             --primary-color: #ff4757;
-            --secondary-color: #2f3542;
             --bg-color: #0a0a0a;
             --card-bg: #1a1a1a;
             --text-color: #ffffff;
-            --accent-color: #eccc68;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* --- القائمة العلوية --- */
+        /* --- Navbar --- */
         nav {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1a1a1a;
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             border-bottom: 2px solid var(--primary-color);
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .logo { font-size: 20px; font-weight: 900; color: var(--primary-color); text-decoration: none; }
 
-        .nav-links {
+        /* --- Viewer Controls --- */
+        .controls {
+            background: #151515;
+            padding: 20px;
             display: flex;
-            list-style: none;
-            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .nav-links a {
+        select {
+            padding: 10px 20px;
+            background: var(--card-bg);
+            color: white;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            background: var(--primary-color);
             color: white;
             text-decoration: none;
+            border-radius: 5px;
             font-weight: bold;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* --- Content Area --- */
+        .content-area {
+            max-width: 900px;
+            margin: 20px auto;
+            text-align: center;
+            min-height: 60vh;
         }
 
-        /* --- واجهة الترحيب (Hero Section) --- */
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images8.alphacoders.com/110/1106828.jpg');
-            background-size: cover;
-            background-position: center;
+        .content-area img {
+            width: 100%;
+            display: block;
+            margin-bottom: 2px; /* For Manhwa style */
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 20px;
+            justify-content: center;
+            border-radius: 10px;
+            border: 2px dashed #333;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
-
-        /* --- شريط البحث --- */
-        .search-container {
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 30px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-        }
-
-        /* --- قسم المانهوا --- */
-        .section-title {
-            padding: 40px 5% 20px;
-            font-size: 24px;
-            border-right: 5px solid var(--primary-color);
-            margin: 20px 5%;
-        }
-
-        .manhwa-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 30px;
-            padding: 0 5% 50px;
-        }
-
-        .manhwa-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.4s;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-
-        .manhwa-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
-        }
-
-        .manhwa-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .status-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--primary-color);
-            color: white;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .manhwa-info {
-            padding: 15px;
-        }
-
-        .manhwa-info h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: var(--accent-color);
-        }
-
-        .manhwa-tags {
-            font-size: 13px;
-            color: #aaa;
-        }
-
-        /* --- التذييل (Footer) --- */
-        footer {
-            background: var(--card-bg);
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            border-top: 1px solid #333;
-        }
-
-        /* تحسين للهاتف */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* يمكن إضافة قائمة موبايل لاحقاً */
-        }
+        footer { text-align: center; padding: 40px; color: #555; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">MANHWA<span>STATION</span></div>
-        <ul class="nav-links">
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">قائمة المانهوا</a></li>
-            <li><a href="#">الأكثر شهرة</a></li>
-            <li><a href="#">تواصل معنا</a></li>
-        </ul>
+        <a href="index.html" class="logo">MANHWA<span>STATION</span></a>
+        <span>Content Viewer</span>
     </nav>
 
-    <section class="hero">
-        <h1>عالم المانهوا بين يديك</h1>
-        <p>اكتشف أحدث الفصول، الترشيحات، والمراجعات الحصرية لأشهر الأعمال الكورية والعالمية.</p>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="ابحث عن مانهوا المفضلة..." onkeyup="filterManhwa()">
-        </div>
-    </section>
-
-    <h2 class="section-title">آخر التحديثات ⚡</h2>
-
-    <div class="manhwa-grid" id="mainGrid">
+    <div class="controls">
+        <a href="#" class="btn"><i class="fas fa-arrow-left"></i> Prev</a>
         
-        <div class="manhwa-card">
-            <span class="status-badge">مستمر</span>
-            <img src="https://m.media-amazon.com/images/I/71Nn0-pM70L.jpg" alt="Solo Leveling">
-            <div class="manhwa-info">
-                <h3>Solo Leveling</h3>
-                <div class="manhwa-tags">أكشن • مغامرة • خيال</div>
-            </div>
+        <select id="selector">
+            <option value="1">Chapter / Episode 01</option>
+            <option value="2">Chapter / Episode 02</option>
+            <option value="3">Chapter / Episode 03</option>
+        </select>
+
+        <a href="#" class="btn">Next <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="content-area">
+        <div class="video-placeholder">
+            <p><i class="fas fa-play-circle fa-3x" style="color: var(--primary-color);"></i><br>Video Player will appear here</p>
         </div>
 
-        <div class="manhwa-card">
-            <span class="status-badge">جديد</span>
-            <img src="https://m.media-amazon.com/images/M/MV5BN2U5Y2FmOGUtMzdhOS00YzE2LWFkZjEtYTM1YmY2MTI2Y2U5XkEyXkFqcGc@._V1_.jpg" alt="The Beginning After The End">
-            <div class="manhwa-info">
-                <h3>The Beginning After The End</h3>
-                <div class="manhwa-tags">سحر • رومانسية • إعادة إحياء</div>
-            </div>
-        </div>
+        <hr style="margin: 40px 0; border-color: #222;">
 
-        <div class="manhwa-card">
-            <span class="status-badge">مكتمل</span>
-            <img src="https://m.media-amazon.com/images/M/MV5BMjA5MTIyMjMzOV5BMl5BanBnXkFtZTgwNTQzNzQ5MjE@._V1_.jpg" alt="Tower of God">
-            <div class="manhwa-info">
-                <h3>Tower of God</h3>
-                <div class="manhwa-tags">غموض • قوى خارقة</div>
-            </div>
+        <div class="manhwa-images">
+            <p style="margin-bottom: 20px; color: #888;">(Example of Manhwa Reading Mode)</p>
+            <img src="https://via.placeholder.com/800x1200?text=Manhwa+Page+1" alt="Page 1">
+            <img src="https://via.placeholder.com/800x1200?text=Manhwa+Page+2" alt="Page 2">
         </div>
-
     </div>
 
     <footer>
-        <p>&copy; 2026 محطة المانهوا | صنع بكل حب لعشاق المانهوا</p>
-        <div style="margin-top: 10px; color: #777;">
-            <i class="fab fa-facebook mx-2"></i>
-            <i class="fab fa-instagram mx-2"></i>
-            <i class="fab fa-tiktok mx-2"></i>
-        </div>
+        <p>&copy; 2026 Manhwa Station | All Rights Reserved</p>
     </footer>
 
-    <script>
-        function filterManhwa() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('manhwa-card');
-
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 </body>
 </html>
